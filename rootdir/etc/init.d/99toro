@@ -1,0 +1,6 @@
+#!/system/bin/sh
+#
+
+if [ -e /data/toro-firstboot.sh ]; then
+	sh /data/toro-firstboot.sh
+fi

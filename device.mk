@@ -25,3 +25,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, device/samsung/tuna/device.mk)
 $(call inherit-product-if-exists, vendor/samsung/toro/device-vendor.mk)
+
+PRODUCT_COPY_FILES += \
+    device/samsung/toro/rootdir/bin/vzw_apns.sh:system/bin/vzw_apns.sh \
+    device/samsung/toro/rootdir/data/preferred-apn.xml:system/preferred-apn.xml \
+    device/samsung/toro/rootdir/data/toro-firstboot.sh:system/toro-firstboot.sh \
+    device/samsung/toro/rootdir/etc/apns-conf_vzw.xml:system/etc/apns-conf_vzw.xml \
+    device/samsung/toro/rootdir/etc/init.d/99toro:system/etc/init.d/99toro

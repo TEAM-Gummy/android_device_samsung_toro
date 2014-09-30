@@ -41,6 +41,12 @@ def FullOTA_InstallEnd(info):
   else:
     WriteRadioCdma(info, radio_cdma_img)
 
+  # Set Verizon apns
+  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/platform/omap/omap_hsmmc.0/by-name/userdata", "/data");')
+  info.script.AppendExtra('run_program("/system/bin/vzw_apns.sh");')
+  info.script.AppendExtra('delete("/system/bin/vzw_apns.sh");')
+  info.script.AppendExtra('unmount("/data");')
+
 def IncrementalOTA_VerifyEnd(info):
   try:
     target_radio_img = info.target_zip.read("RADIO/radio.img")
